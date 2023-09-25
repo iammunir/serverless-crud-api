@@ -1,6 +1,12 @@
-import db from './db.mjs';
-import { GetItemCommand, PutItemCommand, DeleteItemCommand, ScanCommand, UpdateItemCommand } from '@aws-sdk/client-dynamodb';
-import { marshall, unmarshall } from '@aws-sdk/util-dynamodb';
+const db = require("./db");
+const {
+    GetItemCommand,
+    PutItemCommand,
+    DeleteItemCommand,
+    ScanCommand,
+    UpdateItemCommand,
+} = require("@aws-sdk/client-dynamodb");
+const { marshall, unmarshall } = require("@aws-sdk/util-dynamodb");
 
 const getPost = async (event) => {
     const response = { statusCode: 200 };
@@ -148,7 +154,7 @@ const getAllPosts = async () => {
     return response;
 };
 
-export default {
+module.exports = {
     getPost,
     createPost,
     updatePost,
